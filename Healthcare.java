@@ -1,19 +1,10 @@
-// Name: Ong Guo Xiang, Vincent
-// Full Time
-// Tutorial Group: T07F
-//
-// File Name: Vincent_A2.java
-//
-// Declaration: I declare that this is my own work
-
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
 
-
 enum Month  {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec}
 
-class Date{
+class Date {
     
     //private instance variables
     private int day;
@@ -21,57 +12,48 @@ class Date{
     private int year;
     
     //default constructor
-    public Date ()
-    {
+    public Date () {
         day = 1;
         month = Month.Jan;
         year = 2021;
     }
     
     //other constructor
-    public Date (int day, Month month, int year)
-    {
+    public Date (int day, Month month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
     }
     
     //copy constructor
-    public Date(Date d)
-    {
+    public Date(Date d) {
         this.day = d.day;
         this.month = d.month;
         this.year = d.year;
     }
     
     //Accessor method
-    public int getDay()
-    {
+    public int getDay() {
         return day;
     }
     
-    public Month getMonth()
-    {
+    public Month getMonth() {
         return month;
     }
-    public int getYear()
-    {
+    
+    public int getYear() {
         return year;
     }
     
     //mutator method
-    public void setDate(int day, Month month, int year)
-    {
+    public void setDate(int day, Month month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
     }
-    
 }
-//done top part
 
-
-class HealthProfile{
+class HealthProfile {
     // declaring instance variables
     private String firstName;
     private String lastName;
@@ -81,8 +63,7 @@ class HealthProfile{
     private int currentYear;
     
     //default constructor
-    public HealthProfile(String firstName, String lastName, Date dob, double weight, double height, int currentYear)
-    {
+    public HealthProfile(String firstName, String lastName, Date dob, double weight, double height, int currentYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -93,105 +74,85 @@ class HealthProfile{
     }
     
     //copy constructor
-    public HealthProfile(HealthProfile hr)
-    {
+    public HealthProfile(HealthProfile hr) {
         this (hr.firstName, hr.lastName, hr.dob, hr.weight, hr.height, hr.currentYear);
        
     }
     
     // Accessor methods
-    public String getfirstName()
-    {
+    public String getfirstName() {
         return firstName;
     }
 
-    public String getlastName()
-    {
+    public String getlastName() {
         return lastName;
     }
     
-    public Date getDob()
-    {
+    public Date getDob() {
         return dob;
     }
     
-    public double getWeight()
-    {
+    public double getWeight() {
         return weight;
     }
     
-    public double getHeight()
-    {
+    public double getHeight() {
         return height;
     }
     
-    public int getcurrentYear()
-    {
+    public int getcurrentYear() {
         return currentYear;
     }
     
-    
     // Mutator methods
-    public void setfirstName(String firstName)
-    {
+    public void setfirstName(String firstName) {
         this.firstName = firstName;
     }
     
-    public void setlastName(String lastName)
-    {
+    public void setlastName(String lastName) {
         this.lastName = lastName;
     }
     
-    public void setDob(Date dob)
-    {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
     
-    public void setcurrentYear(int currentYear)
-    {
+    public void setcurrentYear(int currentYear) {
         this.currentYear = currentYear;
     }
     
-     public void setBMIInfo(double weight, double height)
-    {
+    public void setBMIInfo(double weight, double height) {
         this.weight = weight;
         this.height = height;
     }
     
     // non static public methods
-    public int getAge()
-    {
+    public int getAge() {
         int age = getcurrentYear() - dob.getYear();
         return age;
     }
     
-    private int getmaxHR()
-    {
+    private int getmaxHR() {
         int maxhr = 220 - getAge();
         return maxhr;
     }
     
-    private double getminTargetHR()
-    {
+    private double getminTargetHR() {
         double minthr = getmaxHR() * 0.50;
         return minthr;
     }
     
-      private double getmaxTargetHR()
-    {
+    private double getmaxTargetHR() {
         double maxthr = getmaxHR() * 0.85;
         return maxthr;
     }
     
-       private double getBMI()
-    {
-
+    private double getBMI() {
         double bmi = weight/(height * height);
         return bmi;
     }
     
-    public void displayInfo()
-    {
+    public void displayInfo() {
        System.out.printf("\nName: %s, %s", firstName, lastName);
        System.out.printf("\nDate of birth: " + dob.getDay() + " "+ dob.getMonth() + " " + dob.getYear());
        System.out.printf("\nYour weight: %.1f kg", weight);
@@ -214,12 +175,9 @@ class HealthProfile{
     }
 }
 
- class Vincent_A2.java
-{
+ class Vincent_A2.java {
     private static Scanner input;
-	public static void main(String[] args) throws IOException
-
-	{
+	public static void main(String[] args) throws IOException {
 	   // Declare Scanner object that linked to data file call "patient.txt"
 	    input = new Scanner (new File("patient.txt"));
 		
@@ -239,8 +197,8 @@ class HealthProfile{
 		lastName = input.nextLine();
 		
 		day = input.nextInt();
-        month = Month.valueOf(input.next());
-        year = input.nextInt();
+        	month = Month.valueOf(input.next());
+        	year = input.nextInt();
 	
 		weight = input.nextDouble();
 		height = input.nextDouble();
@@ -254,26 +212,23 @@ class HealthProfile{
 		// Compute and display info
 		hp.displayInfo();
 		
-		
 		// Read a user from the textfile
 		firstName = input.nextLine();
 		lastName = input.nextLine();
 		
 		day = input.nextInt();
-        month = Month.valueOf(input.next());
-        year = input.nextInt();
+        	month = Month.valueOf(input.next());
+        	year = input.nextInt();
 	
 		weight = input.nextDouble();
 		height = input.nextDouble();
 		
 		currentYear = input.nextInt();
 		
-		
 		// Construct a HealthProfile object to store second user info
-        Date dob1 = new Date(day, month, year);
+        	Date dob1 = new Date(day, month, year);
 		HealthProfile hp2 = new HealthProfile (firstName, lastName, dob1, weight, height, currentYear);
 		// Compute and display info
 		hp2.displayInfo();
-
 	}
 }
